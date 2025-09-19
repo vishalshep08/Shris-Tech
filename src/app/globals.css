@@ -1,26 +1,180 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+@theme {
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+  --color-primary-950: #0A2540;
+
+  --color-secondary-50: #f0fdfa;
+  --color-secondary-100: #ccfbf1;
+  --color-secondary-200: #99f6e4;
+  --color-secondary-300: #5eead4;
+  --color-secondary-400: #2dd4bf;
+  --color-secondary-500: #00C9A7;
+  --color-secondary-600: #0d9488;
+  --color-secondary-700: #0f766e;
+  --color-secondary-800: #115e59;
+  --color-secondary-900: #134e4a;
+  --color-secondary-950: #042f2e;
+
+  --color-accent-50: #fff7ed;
+  --color-accent-100: #ffedd5;
+  --color-accent-200: #fed7aa;
+  --color-accent-300: #fdba74;
+  --color-accent-400: #fb923c;
+  --color-accent-500: #FF6B35;
+  --color-accent-600: #ea580c;
+  --color-accent-700: #c2410c;
+  --color-accent-800: #9a3412;
+  --color-accent-900: #7c2d12;
+  --color-accent-950: #431407;
+
+  --color-neutral-50: #F5F7FA;
+  --color-neutral-100: #E0E0E0;
+  --color-neutral-200: #d1d5db;
+  --color-neutral-300: #9ca3af;
+  --color-neutral-400: #6b7280;
+  --color-neutral-500: #374151;
+  --color-neutral-600: #1f2937;
+  --color-neutral-700: #111827;
+  --color-neutral-800: #0f172a;
+  --color-neutral-900: #0c0a09;
+
+  --font-sans: 'Inter', 'Poppins', 'Montserrat', system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: white;
+  color: var(--color-primary-950);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary-500);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary-600);
+}
+
+/* Selection color */
+::selection {
+  background: var(--color-secondary-500);
+  color: white;
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid var(--color-secondary-500);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Button hover effects */
+.btn-primary {
+  @apply bg-primary-950 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-800 transition-all duration-300 transform hover:scale-105;
+}
+
+.btn-secondary {
+  @apply bg-secondary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary-600 transition-all duration-300 transform hover:scale-105;
+}
+
+.btn-outline {
+  @apply border-2 border-primary-950 text-primary-950 px-6 py-3 rounded-lg font-semibold hover:bg-primary-950 hover:text-white transition-all duration-300;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
+}
+
+/* Section spacing */
+.section-padding {
+  @apply py-16 px-4 sm:px-6 lg:px-8;
+}
+
+/* Container max width */
+.container-custom {
+  @apply max-w-7xl mx-auto;
+}
+
+/* Responsive typography */
+h1, .heading-1 { @apply font-bold leading-tight; }
+h2, .heading-2 { @apply font-bold leading-tight; }
+h3, .heading-3 { @apply font-semibold leading-tight; }
+p, .body-text { @apply leading-relaxed; }
+
+@media (max-width: 767px) {
+  h1, .heading-1 { font-size: 24px; line-height: 1.2; }
+  h2, .heading-2 { font-size: 20px; line-height: 1.2; }
+  h3, .heading-3 { font-size: 18px; line-height: 1.2; }
+  p, .body-text { font-size: 16px; line-height: 1.6; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  h1, .heading-1 { font-size: 32px; line-height: 1.2; }
+  h2, .heading-2 { font-size: 28px; line-height: 1.2; }
+  h3, .heading-3 { font-size: 24px; line-height: 1.2; }
+  p, .body-text { font-size: 16px; line-height: 1.6; }
+}
+
+@media (min-width: 1024px) {
+  h1, .heading-1 { font-size: 48px; line-height: 1.2; }
+  h2, .heading-2 { font-size: 36px; line-height: 1.2; }
+  h3, .heading-3 { font-size: 28px; line-height: 1.2; }
+  p, .body-text { font-size: 18px; line-height: 1.6; }
+}
+
+/* Utility helpers for standardized sections */
+.section { @apply section-padding; }
+.section-title { @apply heading-2 text-primary-950; }
+.section-subtitle { @apply body-text text-neutral-600; }
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 3px solid var(--color-secondary-500);
+  outline-offset: 2px;
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
 }
