@@ -1,6 +1,8 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
+
 import {
   Mail,
   Phone,
@@ -54,13 +56,13 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
-      <div className="container-custom">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-10 sm:py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
-          {/* Company Info */}
-          <div>
+        <div className="py-8 sm:py-12 lg:py-16">
+          {/* Company Info Section - Always visible on top for mobile */}
+          <div className="mb-8 sm:mb-12">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden bg-white/10">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center overflow-hidden bg-white/10 backdrop-blur-sm">
                 <img
                   src="/ShrisTechLogo.png"
                   alt="Shris Tech Logo"
@@ -68,43 +70,47 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <h3 className="text-lg sm:text-xl font-bold">Shris Tech</h3>
-                <p className="text-sm text-neutral-300">Innovation & Excellence</p>
+                <h3 className="text-xl sm:text-2xl font-bold">Shris Tech</h3>
+                <p className="text-sm text-neutral-300">
+                  Innovation & Excellence
+                </p>
               </div>
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-3 text-sm break-words leading-relaxed">
-              <div className="flex items-center gap-2 text-neutral-300">
-                <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
+            <div className="space-y-4 text-sm">
+              <div className="flex items-start gap-3 text-neutral-300">
+                <Mail className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                 <a
                   href="mailto:anisha@shristech.com"
-                  className="hover:underline hover:text-cyan-300 transition-colors"
+                  className="hover:underline hover:text-cyan-300 transition-colors duration-200 break-all"
                 >
                   anisha@shristech.com
                 </a>
               </div>
 
-              <div className="flex flex-col gap-2 text-neutral-300">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
-                  <a
-                    href="tel:+919579968397"
-                    className="hover:underline hover:text-cyan-300 transition-colors"
-                  >
-                    +91 9579968397
-                  </a>
+              <div className="text-neutral-300">
+                <div className="flex items-start gap-3">
+                  <Phone className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                  <div className="flex flex-col gap-1">
+                    <a
+                      href="tel:+919579968397"
+                      className="hover:underline hover:text-cyan-300 transition-colors duration-200"
+                    >
+                      +91 9579968397
+                    </a>
+                    <a
+                      href="tel:+917588473653"
+                      className="hover:underline hover:text-cyan-300 transition-colors duration-200"
+                    >
+                      +91 7588473653
+                    </a>
+                  </div>
                 </div>
-                <a
-                  href="tel:+917588473653"
-                  className="pl-6 hover:underline hover:text-cyan-300 transition-colors"
-                >
-                  +91 7588473653
-                </a>
               </div>
 
-              <div className="flex gap-2 text-neutral-300">
-                <MapPin className="w-4 h-4 text-cyan-400 shrink-0 mt-1" />
+              <div className="flex items-start gap-3 text-neutral-300">
+                <MapPin className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   Shivthar, Tal Dist Satara,
                   <br /> Maharashtra, India
@@ -113,97 +119,108 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-4">Company</h4>
-            <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200 text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Links Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8">
 
-          {/* Services Links */}
-          <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200 text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Company Links */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">
+                Company
+              </h4>
+              <ul className="space-y-3">
+                {footerLinks.company.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200 text-sm inline-block"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Academy Links */}
-          <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-4">
-              Shris Academy
-            </h4>
-            <ul className="space-y-2">
-              {footerLinks.academy.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200 text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Services Links */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">
+                Services
+              </h4>
+              <ul className="space-y-3">
+                {footerLinks.services.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200 text-sm inline-block leading-relaxed"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Academy Links */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">
+                Shris Academy
+              </h4>
+              <ul className="space-y-3">
+                {footerLinks.academy.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200 text-sm inline-block leading-relaxed"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Bottom Footer */}
-        <div className="py-6 border-t border-white/20">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
-              <p className="text-neutral-400 text-xs sm:text-sm">
-                © {new Date().getFullYear()} Shris Tech. All rights reserved.
-              </p>
-              <div className="flex flex-wrap items-center gap-3 justify-center sm:justify-start">
-                {footerLinks.legal.map((link) => (
+        <div className="py-6 sm:py-8 border-t border-white/20 mt-8">
+          {/* Social Links - Prominent on mobile */}
+          <div className="flex items-center justify-center space-x-4 mb-6">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <Link
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white/10 hover:bg-cyan-500 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
+                  aria-label={social.name}
+                >
+                  <Icon className="w-6 h-6 text-white" />
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Copyright and Legal Links */}
+          <div className="text-center space-y-4">
+            <p className="text-neutral-400 text-sm">
+              © {new Date().getFullYear()} Shris Tech. All rights reserved.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+              {footerLinks.legal.map((link, index) => (
+                <React.Fragment key={link.name}>
                   <Link
-                    key={link.name}
                     href={link.href}
-                    className="text-neutral-400 hover:text-cyan-400 transition-colors duration-200 text-xs sm:text-sm"
+                    className="text-neutral-400 hover:text-cyan-400 transition-colors duration-200 text-sm px-2 py-1"
                   >
                     {link.name}
                   </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex items-center justify-center md:justify-end space-x-3">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <Link
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 hover:bg-cyan-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-105"
-                    aria-label={social.name}
-                  >
-                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                  </Link>
-                );
-              })}
+                  {index < footerLinks.legal.length - 1 && (
+                    <span className="text-neutral-500 hidden sm:inline">|</span>
+                  )}
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </div>
