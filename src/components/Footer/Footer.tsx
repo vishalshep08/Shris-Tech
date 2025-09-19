@@ -56,7 +56,7 @@ export default function Footer() {
     <footer className="bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
       <div className="container-custom">
         {/* Main Footer Content */}
-        <div className="py-10 sm:py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-10 sm:py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
@@ -69,14 +69,12 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="text-lg sm:text-xl font-bold">Shris Tech</h3>
-                <p className="text-sm text-neutral-300">
-                  Innovation & Excellence
-                </p>
+                <p className="text-sm text-neutral-300">Innovation & Excellence</p>
               </div>
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-3 text-sm">
+            <div className="space-y-3 text-sm break-words leading-relaxed">
               <div className="flex items-center gap-2 text-neutral-300">
                 <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
                 <a
@@ -117,9 +115,7 @@ export default function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-4">
-              Company
-            </h4>
+            <h4 className="text-base sm:text-lg font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -136,9 +132,7 @@ export default function Footer() {
 
           {/* Services Links */}
           <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-4">
-              Services
-            </h4>
+            <h4 className="text-base sm:text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
@@ -175,8 +169,8 @@ export default function Footer() {
 
         {/* Bottom Footer */}
         <div className="py-6 border-t border-white/20">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-center sm:text-left">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
               <p className="text-neutral-400 text-xs sm:text-sm">
                 © {new Date().getFullYear()} Shris Tech. All rights reserved.
               </p>
@@ -194,7 +188,7 @@ export default function Footer() {
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center justify-center md:justify-end space-x-3">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
