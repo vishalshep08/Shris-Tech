@@ -6,8 +6,6 @@
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
 
-
-
 @theme {
   --color-primary-50: #f0f9ff;
   --color-primary-100: #e0f2fe;
@@ -98,8 +96,7 @@ body {
 
 /* Selection color */
 ::selection {
-  background: var(--color-secondary-500);
-  color: white;
+  @apply bg-cyan-400 text-black;
 }
 
 /* Focus styles */

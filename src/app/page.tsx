@@ -23,6 +23,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Image from "next/image";
 
 const services = [
   {
@@ -352,9 +353,11 @@ export default function Home() {
                   </p>
                   <div className="flex items-center">
                     <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center mr-4 bg-white border border-gray-200">
-                      <img
+                      <Image
                         src={testimonial.logo}
                         alt={`${testimonial.name} logo`}
+                        width={48}
+                        height={48}
                         className="w-full h-full object-contain"
                       />
                     </div>

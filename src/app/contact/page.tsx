@@ -190,25 +190,43 @@ export default function Contact() {
                 <div>
                   <h4 className="font-semibold text-primary-950 mb-1">Address</h4>
                   <p className="text-neutral-600 text-sm sm:text-base">
-                    Shivthar,<br /> Tal Dist. Satara,<br /> Maharashtra, India
+                    <a
+                      href="https://www.google.com/maps?ll=17.778824,74.059226&z=13&t=m&hl=en-IN&gl=US&mapclient=embed&q=Shivthar+Maharashtra+415011"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                    >
+                      Shivthar,<br />
+                      Tal Dist. Satara,<br />
+                      Maharashtra, India
+                    </a>
                   </p>
                 </div>
               </div>
+
               <div className="flex items-start space-x-4">
                 <Phone className="w-6 h-6 text-secondary-500 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-primary-950 mb-1">Phone</h4>
-                  <p className="text-neutral-600">+91 9579968397</p>
-                  <p className="text-neutral-600">+91 7588473653</p>
+                  <p className="text-neutral-600">
+                    <a href="tel:+919579968397" className="hover:underline">+91 9579968397</a>
+                  </p>
+                  <p className="text-neutral-600">
+                    <a href="tel:+917588473653" className="hover:underline">+91 7588473653</a>
+                  </p>
                 </div>
               </div>
+
               <div className="flex items-start space-x-4">
                 <Mail className="w-6 h-6 text-secondary-500 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-primary-950 mb-1">Email</h4>
-                  <p className="text-neutral-600">anisha@shristech.com</p>
+                  <p className="text-neutral-600">
+                    <a href="mailto:anisha@shristech.com" className="hover:underline">anisha@shristech.com</a>
+                  </p>
                 </div>
               </div>
+
             </div>
           </motion.div>
 
@@ -231,21 +249,21 @@ export default function Contact() {
               <div className="flex items-start space-x-3 text-sm sm:text-base">
                 <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-secondary-500 mt-0.5" />
                 <p className="text-neutral-600">
-                  We provide round-the-clock availability to align with clients in 
+                  We provide round-the-clock availability to align with clients in
                   <strong> North America, Europe, Middle East, and Asia</strong>.
                 </p>
               </div>
               <div className="flex items-start space-x-3 text-sm sm:text-base">
                 <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-secondary-500 mt-0.5" />
                 <p className="text-neutral-600">
-                  Global communication channels — Zoom, Google Meet, and Microsoft Teams 
+                  Global communication channels — Zoom, Google Meet, and Microsoft Teams
                   for seamless collaboration across time zones.
                 </p>
               </div>
               <div className="flex items-start space-x-3 text-sm sm:text-base">
                 <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-secondary-500 mt-0.5" />
                 <p className="text-neutral-600">
-                  Secure contracts and NDAs ensure confidentiality and compliance 
+                  Secure contracts and NDAs ensure confidentiality and compliance
                   with <strong>GDPR & international standards</strong>.
                 </p>
               </div>

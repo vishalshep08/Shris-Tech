@@ -69,22 +69,34 @@ export default function ContactForm() {
     setStatus({ type: 'loading', message: 'Sending message...' });
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      setStatus({
-        type: 'success',
-        message:
-          "✅ Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.",
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        service: '',
-        message: '',
-      });
+      const result = await response.json();
+      if (response.ok) {
+        setStatus({
+          type: 'success',
+          message:
+            "✅ Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.",
+        });
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          service: '',
+          message: '',
+        });
+      } else {
+        setStatus({
+          type: 'error',
+          message: result.error || '❌ Sorry, there was an error sending your message. Please try again or contact us directly.',
+        });
+      }
     } catch (error) {
       setStatus({
         type: 'error',
@@ -177,7 +189,7 @@ export default function ContactForm() {
                 value={formData.phone}
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-transparent"
-                placeholder="+1 (555) 123-4567"
+                placeholder="+1 123 456 7890"
               />
             </div>
           </div>

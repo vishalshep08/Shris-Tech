@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-
 import {
   Mail,
   Phone,
@@ -11,6 +10,7 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
+import Image from "next/image";
 
 const footerLinks = {
   company: [
@@ -38,9 +38,11 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: "Twitter", 
-    href: "https://x.com/ShrisTech?t=UOE3c9dCrSXhOLaqyY3ZFQ&s=08", 
-    icon: Twitter },
+  {
+    name: "Twitter",
+    href: "https://x.com/ShrisTech?t=UOE3c9dCrSXhOLaqyY3ZFQ&s=08",
+    icon: Twitter,
+  },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/anisha-sabale-b40707210",
@@ -57,16 +59,18 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer Content */}
-        <div className="py-10 sm:py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+        {/* Main Footer */}
+        <div className="py-10 sm:py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-4 mb-6">
-              <div className="w-32 sm:w-40 h-auto flex items-center justify-center">
+              <div className="w-28 sm:w-36">
                 <div className="bg-white/90 p-2 sm:p-3 rounded-xl shadow-md flex items-center justify-center">
-                  <img
+                  <Image
                     src="/ShrisTechLogo.png"
                     alt="Shris Tech Logo"
+                    width={144}
+                    height={80}
                     className="w-full max-h-16 sm:max-h-20 object-contain"
                   />
                 </div>
@@ -91,23 +95,21 @@ export default function Footer() {
                 </a>
               </div>
 
-              <div className="text-neutral-300">
-                <div className="flex items-start gap-3">
-                  <Phone className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-                  <div className="flex flex-col gap-1">
-                    <a
-                      href="tel:+919579968397"
-                      className="hover:underline hover:text-cyan-300 transition-colors duration-200"
-                    >
-                      +91 9579968397
-                    </a>
-                    <a
-                      href="tel:+917588473653"
-                      className="hover:underline hover:text-cyan-300 transition-colors duration-200"
-                    >
-                      +91 7588473653
-                    </a>
-                  </div>
+              <div className="flex items-start gap-3 text-neutral-300">
+                <Phone className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a
+                    href="tel:+919579968397"
+                    className="hover:underline hover:text-cyan-300 transition-colors duration-200"
+                  >
+                    +91 9579968397
+                  </a>
+                  <a
+                    href="tel:+917588473653"
+                    className="hover:underline hover:text-cyan-300 transition-colors duration-200"
+                  >
+                    +91 7588473653
+                  </a>
                 </div>
               </div>
 
@@ -121,9 +123,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8">
-            {/* Company Links */}
+          {/* Links */}
+          <div className="md:col-span-1 lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Company */}
             <div>
               <h4 className="text-lg font-semibold mb-4 text-white">
                 Company
@@ -133,7 +135,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200 text-sm inline-block"
+                      className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200 text-sm"
                     >
                       {link.name}
                     </Link>
@@ -142,7 +144,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Services Links */}
+            {/* Services */}
             <div>
               <h4 className="text-lg font-semibold mb-4 text-white">
                 Services
@@ -152,7 +154,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200 text-sm inline-block leading-relaxed"
+                      className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200 text-sm leading-relaxed"
                     >
                       {link.name}
                     </Link>
@@ -161,7 +163,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Academy Links */}
+            {/* Academy */}
             <div>
               <h4 className="text-lg font-semibold mb-4 text-white">
                 Shris Academy
@@ -171,7 +173,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200 text-sm inline-block leading-relaxed"
+                      className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200 text-sm leading-relaxed"
                     >
                       {link.name}
                     </Link>
@@ -183,9 +185,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="py-6 sm:py-8 border-t border-white/20 mt-8">
-          {/* Social Links */}
-          <div className="flex items-center justify-center space-x-4 mb-6">
+        <div className="py-6 sm:py-8 border-t border-white/20 mt-6">
+          {/* Social */}
+          <div className="flex justify-center space-x-4 mb-6">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
@@ -194,17 +196,17 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-white/10 hover:bg-cyan-500 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
+                  className="w-11 h-11 sm:w-12 sm:h-12 bg-white/10 hover:bg-cyan-500 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
                   aria-label={social.name}
                 >
-                  <Icon className="w-6 h-6 text-white" />
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </Link>
               );
             })}
           </div>
 
-          {/* Copyright and Legal Links */}
-          <div className="text-center space-y-4">
+          {/* Copyright + Legal */}
+          <div className="text-center space-y-3">
             <p className="text-neutral-400 text-sm">
               © {new Date().getFullYear()} Shris Tech. All rights reserved.
             </p>
@@ -213,7 +215,7 @@ export default function Footer() {
                 <React.Fragment key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-neutral-400 hover:text-cyan-400 transition-colors duration-200 text-sm px-2 py-1"
+                    className="text-neutral-400 hover:text-cyan-400 transition-colors duration-200 text-sm"
                   >
                     {link.name}
                   </Link>
