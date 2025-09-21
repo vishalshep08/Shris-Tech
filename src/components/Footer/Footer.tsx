@@ -7,7 +7,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Facebook,
   Twitter,
   Linkedin,
   Instagram,
@@ -39,8 +38,9 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: "Facebook", href: "#", icon: Facebook },
-  { name: "Twitter", href: "#", icon: Twitter },
+  { name: "Twitter", 
+    href: "https://x.com/ShrisTech?t=UOE3c9dCrSXhOLaqyY3ZFQ&s=08", 
+    icon: Twitter },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/anisha-sabale-b40707210",
@@ -58,19 +58,21 @@ export default function Footer() {
     <footer className="bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-8 sm:py-12 lg:py-16">
-          {/* Company Info Section - Always visible on top for mobile */}
-          <div className="mb-8 sm:mb-12">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center overflow-hidden bg-white/10 backdrop-blur-sm">
-                <img
-                  src="/ShrisTechLogo.png"
-                  alt="Shris Tech Logo"
-                  className="w-full h-full object-contain"
-                />
+        <div className="py-10 sm:py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+          {/* Company Info */}
+          <div>
+            <div className="flex items-center space-x-4 mb-6">
+              <div className="w-32 sm:w-40 h-auto flex items-center justify-center">
+                <div className="bg-white/90 p-2 sm:p-3 rounded-xl shadow-md flex items-center justify-center">
+                  <img
+                    src="/ShrisTechLogo.png"
+                    alt="Shris Tech Logo"
+                    className="w-full max-h-16 sm:max-h-20 object-contain"
+                  />
+                </div>
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold">Shris Tech</h3>
+                <h3 className="text-lg sm:text-xl font-bold">Shris Tech</h3>
                 <p className="text-sm text-neutral-300">
                   Innovation & Excellence
                 </p>
@@ -121,7 +123,6 @@ export default function Footer() {
 
           {/* Links Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8">
-
             {/* Company Links */}
             <div>
               <h4 className="text-lg font-semibold mb-4 text-white">
@@ -183,7 +184,7 @@ export default function Footer() {
 
         {/* Bottom Footer */}
         <div className="py-6 sm:py-8 border-t border-white/20 mt-8">
-          {/* Social Links - Prominent on mobile */}
+          {/* Social Links */}
           <div className="flex items-center justify-center space-x-4 mb-6">
             {socialLinks.map((social) => {
               const Icon = social.icon;

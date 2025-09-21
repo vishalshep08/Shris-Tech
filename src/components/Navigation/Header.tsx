@@ -22,7 +22,7 @@ const navigation = [
     ],
   },
   { name: 'Shris Academy', href: '/academy' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Get Started', href: '/contact', cta: true },
 ];
 
 export default function Header() {
@@ -54,14 +54,12 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
+          {/* Logo + Name (Always Visible) */}
           <Link href="/" className="flex items-center space-x-3">
             <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md">
               <Image
@@ -72,56 +70,60 @@ export default function Header() {
                 className="object-cover"
               />
             </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-primary-[#0A3D62]">Shris Tech</h1>
-              <p className="text-xs text-neutral-500">Innovation & Excellence</p>
+            <div className="flex flex-col">
+              <h1 className="text-lg sm:text-xl font-bold text-[#0A3D62] leading-tight">
+                Shris Tech
+              </h1>
+              <p className="hidden sm:block text-xs text-neutral-500">
+                Innovation & Excellence
+              </p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <div key={item.name} className="relative group">
+          <div className="hidden lg:flex items-center space-x-6">
+            {navigation.map((item) =>
+              item.cta ? (
                 <Link
+                  key={item.name}
                   href={item.href}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                    pathname === item.href
-                      ? 'text-secondary-600 font-semibold'
-                      : 'text-neutral-600 hover:text-primary-950'
-                  }`}
+                  className="px-5 py-2 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white text-sm font-semibold rounded-xl shadow-md hover:opacity-90 transition"
                 >
-                  <span>{item.name}</span>
-                  {item.submenu && <ChevronDown className="w-4 h-4" />}
+                  {item.name}
                 </Link>
+              ) : (
+                <div key={item.name} className="relative group">
+                  <Link
+                    href={item.href}
+                    className={`flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                      pathname === item.href
+                        ? 'text-secondary-600 font-semibold'
+                        : 'text-neutral-600 hover:text-primary-950'
+                    }`}
+                  >
+                    <span>{item.name}</span>
+                    {item.submenu && <ChevronDown className="w-4 h-4" />}
+                  </Link>
 
-                {/* Desktop Submenu */}
-                {item.submenu && (
-                  <div className="absolute top-full left-0 mt-2 w-60 bg-white rounded-xl shadow-xl border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                    <div className="py-2">
-                      {item.submenu.map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          href={subItem.href}
-                          className="block px-4 py-3 text-sm text-neutral-600 hover:text-primary-950 hover:bg-neutral-50 transition-colors duration-200"
-                        >
-                          {subItem.name}
-                        </Link>
-                      ))}
+                  {/* Desktop Submenu */}
+                  {item.submenu && (
+                    <div className="absolute top-full left-0 mt-2 w-60 bg-white rounded-xl shadow-xl border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                      <div className="py-2">
+                        {item.submenu.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            href={subItem.href}
+                            className="block px-4 py-3 text-sm text-neutral-600 hover:text-primary-950 hover:bg-neutral-50 transition-colors duration-200"
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <Link
-              href="/contact"
-              className="px-5 py-2 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white text-sm font-semibold rounded-xl shadow-md hover:opacity-90 transition"
-            >
-              Get Started
-            </Link>
+                  )}
+                </div>
+              )
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -168,7 +170,7 @@ export default function Header() {
                         className="object-cover"
                       />
                     </div>
-                    <h2 className="text-lg font-bold text-primary-950">
+                    <h2 className="text-base font-bold text-[#0A3D62]">
                       Shris Tech
                     </h2>
                   </Link>
@@ -182,9 +184,9 @@ export default function Header() {
 
                 {/* Mobile Links */}
                 <div className="p-4 space-y-2">
-                  {navigation.map((item) => (
-                    <div key={item.name}>
-                      {item.submenu ? (
+                  {navigation.map((item) =>
+                    item.submenu ? (
+                      <div key={item.name}>
                         <button
                           onClick={() => toggleSubmenu(item.name)}
                           className="flex justify-between items-center w-full px-4 py-3 rounded-lg text-neutral-700 hover:text-primary-950 hover:bg-neutral-50 transition"
@@ -196,55 +198,54 @@ export default function Header() {
                             }`}
                           />
                         </button>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          onClick={closeMenu}
-                          className={`block px-4 py-3 rounded-lg text-sm font-medium transition ${
-                            pathname === item.href
-                              ? 'text-secondary-600 bg-secondary-50'
-                              : 'text-neutral-700 hover:text-primary-950 hover:bg-neutral-50'
-                          }`}
-                        >
-                          {item.name}
-                        </Link>
-                      )}
 
-                      {/* Mobile Submenu */}
-                      <AnimatePresence>
-                        {item.submenu && activeSubmenu === item.name && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="ml-4 mt-2 space-y-1 overflow-hidden"
-                          >
-                            {item.submenu.map((subItem) => (
-                              <Link
-                                key={subItem.name}
-                                href={subItem.href}
-                                onClick={closeMenu}
-                                className="block px-4 py-2 text-sm text-neutral-500 hover:text-primary-950 hover:bg-neutral-50 rounded-lg transition"
-                              >
-                                {subItem.name}
-                              </Link>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ))}
-
-                  {/* Mobile CTA */}
-                  <div className="pt-4">
-                    <Link
-                      href="/contact"
-                      className="w-full block text-center px-5 py-3 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white font-semibold rounded-xl shadow-md hover:opacity-90 transition"
-                      onClick={closeMenu}
-                    >
-                      Get Started
-                    </Link>
-                  </div>
+                        {/* Mobile Submenu */}
+                        <AnimatePresence>
+                          {activeSubmenu === item.name && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="ml-4 mt-2 space-y-1 overflow-hidden"
+                            >
+                              {item.submenu.map((subItem) => (
+                                <Link
+                                  key={subItem.name}
+                                  href={subItem.href}
+                                  onClick={closeMenu}
+                                  className="block px-4 py-2 text-sm text-neutral-500 hover:text-primary-950 hover:bg-neutral-50 rounded-lg transition"
+                                >
+                                  {subItem.name}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : item.cta ? (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={closeMenu}
+                        className="block w-full text-center px-5 py-3 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white font-semibold rounded-xl shadow-md hover:opacity-90 transition"
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={closeMenu}
+                        className={`block px-4 py-3 rounded-lg text-sm font-medium transition ${
+                          pathname === item.href
+                            ? 'text-secondary-600 bg-secondary-50'
+                            : 'text-neutral-700 hover:text-primary-950 hover:bg-neutral-50'
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    )
+                  )}
                 </div>
               </motion.div>
             </motion.div>

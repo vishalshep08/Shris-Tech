@@ -8,10 +8,25 @@ import {
   Megaphone,
   Brain,
   Wrench,
+  LucideIcon,
 } from 'lucide-react';
 import ServiceCard from '@/components/ServiceCard/ServiceCard';
 
-const services = [
+// ---------------------------
+// Types
+// ---------------------------
+interface Service {
+  id: string;
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  features: string[];
+}
+
+// ---------------------------
+// Services Data
+// ---------------------------
+const services: Service[] = [
   {
     id: 'web-development',
     icon: Code,
@@ -98,6 +113,26 @@ const services = [
   },
 ];
 
+// ---------------------------
+// Animations
+// ---------------------------
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
+};
+
+// ---------------------------
+// Component
+// ---------------------------
 export default function Services() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -122,22 +157,27 @@ export default function Services() {
 
       {/* Services Grid */}
       <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <div key={service.id} id={service.id}>
+        <motion.div
+          className="max-w-7xl mx-auto grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
+          {services.map((service) => (
+            <motion.div key={service.id} variants={cardVariants} className="flex">
               <ServiceCard
-                icon={service.icon as any}
+                icon={service.icon}
                 title={service.title}
                 description={service.description}
                 features={service.features}
                 ctaText="Enquire Now"
                 ctaHref={`/contact?service=${encodeURIComponent(service.title)}`}
-                delay={index * 0.05}
-                featured={index === 0}
+                featured={false} // Removed "Most Popular"
+                className="flex flex-col h-full"
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
     </div>
   );

@@ -1,147 +1,175 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
-  Code, Smartphone, BarChart3, Megaphone, Brain, Wrench,
-  Star, Users, Award, Clock, ArrowRight
-} from 'lucide-react';
-import Hero from '@/components/Hero/Hero';
-import ServiceCard from '@/components/ServiceCard/ServiceCard';
-import Link from 'next/link';
+  Code,
+  Smartphone,
+  BarChart3,
+  Megaphone,
+  Brain,
+  Wrench,
+  Star,
+  Users,
+  Award,
+  Clock,
+} from "lucide-react";
+import Hero from "@/components/Hero/Hero";
+import ServiceCard from "@/components/ServiceCard/ServiceCard";
+import Link from "next/link";
+
+// Swiper imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const services = [
   {
     icon: Code,
-    title: 'Web & Full Stack Development',
-    description: 'Custom web applications and websites built with modern technologies and best practices.',
+    title: "Web & Full Stack Development",
+    description:
+      "Custom web applications and websites built with modern technologies and best practices.",
     features: [
-      'React, Next.js, Vue.js Development',
-      'Node.js, Python, PHP Backend',
-      'Database Design & Optimization',
-      'Responsive Design & UX/UI'
+      "React, Next.js, Vue.js Development",
+      "Node.js, Python, PHP Backend",
+      "Database Design & Optimization",
+      "Responsive Design & UX/UI",
     ],
-    ctaText: 'Get Quote',
-    ctaHref: '/contact',
-    featured: true
+    ctaText: "Get Quote",
+    ctaHref: "/contact",
+    featured: true,
   },
   {
     icon: Smartphone,
-    title: 'Mobile App Development',
-    description: 'Native and cross-platform mobile applications for iOS and Android devices.',
+    title: "Mobile App Development",
+    description:
+      "Native and cross-platform mobile applications for iOS and Android devices.",
     features: [
-      'React Native Development',
-      'Flutter Applications',
-      'Native iOS & Android',
-      'Push Notifications & Analytics'
+      "React Native Development",
+      "Flutter Applications",
+      "Native iOS & Android",
+      "Push Notifications & Analytics",
     ],
-    ctaText: 'Learn More',
-    ctaHref: '/services#mobile-apps'
+    ctaText: "Learn More",
+    ctaHref: "/services#mobile-apps",
   },
   {
     icon: BarChart3,
-    title: 'Data Analytics & BI',
-    description: 'Transform your data into actionable insights with powerful analytics solutions.',
+    title: "Data Analytics & BI",
+    description:
+      "Transform your data into actionable insights with powerful analytics solutions.",
     features: [
-      'Power BI & Tableau Dashboards',
-      'Data Visualization',
-      'Business Intelligence',
-      'Predictive Analytics',
+      "Power BI & Tableau Dashboards",
+      "Data Visualization",
+      "Business Intelligence",
+      "Predictive Analytics",
     ],
-    ctaText: 'Explore',
-    ctaHref: '/services#data-analytics'
+    ctaText: "Explore",
+    ctaHref: "/services#data-analytics",
   },
   {
     icon: Megaphone,
-    title: 'Digital Marketing',
-    description: 'Comprehensive digital marketing strategies to grow your online presence.',
+    title: "Digital Marketing",
+    description:
+      "Comprehensive digital marketing strategies to grow your online presence.",
     features: [
-      'SEO & SEM Optimization',
-      'Social Media Marketing',
-      'Content Marketing',
-      'Analytics & Performance Tracking'
+      "SEO & SEM Optimization",
+      "Social Media Marketing",
+      "Content Marketing",
+      "Analytics & Performance Tracking",
     ],
-    ctaText: 'Start Campaign',
-    ctaHref: '/services#digital-marketing'
+    ctaText: "Start Campaign",
+    ctaHref: "/services#digital-marketing",
   },
   {
     icon: Brain,
-    title: 'AI & Machine Learning',
-    description: 'Leverage artificial intelligence to automate processes and gain competitive advantage.',
+    title: "AI & Machine Learning",
+    description:
+      "Leverage artificial intelligence to automate processes and gain competitive advantage.",
     features: [
-      'Machine Learning Models',
-      'Natural Language Processing',
-      'Computer Vision',
-      'AI Chatbots & Automation'
+      "Machine Learning Models",
+      "Natural Language Processing",
+      "Computer Vision",
+      "AI Chatbots & Automation",
     ],
-    ctaText: 'Discover AI',
-    ctaHref: '/services#ai-ml'
+    ctaText: "Discover AI",
+    ctaHref: "/services#ai-ml",
   },
   {
     icon: Wrench,
-    title: 'IT Support & Maintenance',
-    description: 'Comprehensive IT support and maintenance services to keep your systems running smoothly.',
+    title: "IT Support & Maintenance",
+    description:
+      "Comprehensive IT support and maintenance services to keep your systems running smoothly.",
     features: [
-      '24/7 Technical Support',
-      'System Maintenance',
-      'Security Updates',
-      'Performance Optimization'
+      "24/7 Technical Support",
+      "System Maintenance",
+      "Security Updates",
+      "Performance Optimization",
     ],
-    ctaText: 'Get Support',
-    ctaHref: '/contact'
-  }
+    ctaText: "Get Support",
+    ctaHref: "/contact",
+  },
 ];
 
 const testimonials = [
   {
-    name: 'Belly Feast',
-    role: 'Belly Feast Food',
-    content: 'Shris Tech transformed our digital presence completely. Their web development team delivered beyond our expectations.',
+    name: "Belly Feast",
+    role: "Belly Feast Food",
+    content:
+      "Shris Tech transformed our digital presence completely. Their web development team delivered beyond our expectations, providing innovative, reliable, and highly engaging solutions.",
     rating: 5,
-    avatar: 'BF'
+    logo: "/BB.jpg", 
   },
   {
-    name: 'Vidaychandra Photoshop',
-    role: 'Vidaychandra Photoshop',
-    content: 'Shris Tech is a dynamic web development company that blends innovation with expertise to deliver modern, scalable, and user-friendly solutions.',
+    name: "Vidaychandra Photoshop",
+    role: "Vidaychandra Photoshop",
+    content:
+      "Shris Tech is a dynamic web development company that blends innovation with expertise to deliver modern, scalable, and user-friendly solutions.",
     rating: 5,
-    avatar: 'VP'
+    logo: "/vidaychandra.png",
   },
   {
-    name: 'Basket Bee Mart',
-    role: 'Basket Bee Mart',
-    content: 'Their digital marketing strategies and AI solutions have revolutionized how we approach customer engagement.',
+    name: "Basket Bee Mart",
+    role: "Basket Bee Mart",
+    content:
+      "Their digital marketing strategies and AI solutions have revolutionized how we approach customer engagement, driving measurable growth and optimizing overall business performance.",
     rating: 5,
-    avatar: 'BBM'
-  }
+    logo: "/BF.jpg",
+  },
 ];
 
 const stats = [
-  { number: '50+', label: 'Happy Clients' },
-  { number: '1+', label: 'Years Experience' },
-  { number: '99%', label: 'Client Satisfaction' }
+  { number: "50+", label: "Happy Clients" },
+  { number: "1+", label: "Years Experience" },
+  { number: "99%", label: "Client Satisfaction" },
 ];
 
 const values = [
   {
     icon: Users,
-    title: 'Client-Centric Approach',
-    description: 'We prioritize our clients\' success and work closely with them to achieve their goals.'
+    title: "Client-Centric Approach",
+    description:
+      "We prioritize our clients' success and work closely with them to achieve their goals.",
   },
   {
     icon: Award,
-    title: 'Quality Excellence',
-    description: 'We maintain the highest standards in all our deliverables and continuously improve our processes.'
+    title: "Quality Excellence",
+    description:
+      "We maintain the highest standards in all our deliverables and continuously improve our processes.",
   },
   {
     icon: Clock,
-    title: 'Timely Delivery',
-    description: 'We understand the importance of deadlines and consistently deliver projects on time.'
+    title: "Timely Delivery",
+    description:
+      "We understand the importance of deadlines and consistently deliver projects on time.",
   },
   {
     icon: Brain,
-    title: 'Innovation Focus',
-    description: 'We stay ahead of technology trends and implement cutting-edge solutions for our clients.'
-  }
+    title: "Innovation Focus",
+    description:
+      "We stay ahead of technology trends and implement cutting-edge solutions for our clients.",
+  },
 ];
 
 export default function Home() {
@@ -154,30 +182,23 @@ export default function Home() {
         description="Transform your business with cutting-edge technology solutions. We deliver excellence through innovation, security, and scalability."
         primaryCTA={{
           text: "Get Started Today",
-          href: "/contact"
-        }}
-        secondaryCTA={{
-          text: "Watch Our Story",
-          href: "#"
+          href: "/contact",
         }}
         features={[
           "Custom Web & Mobile Applications",
           "Advanced Data Analytics & BI Solutions",
           "AI/ML Implementation & Automation",
           "Digital Marketing & SEO Services",
-          "24/7 Technical Support & Maintenance"
+          "24/7 Technical Support & Maintenance",
         ]}
         showVideo={true}
       />
 
       {/* Stats Section */}
       <section className="relative section-padding">
-        {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF]">
           <div className="absolute inset-0 bg-black/40" />
         </div>
-
-        {/* Content */}
         <div className="relative container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -221,18 +242,15 @@ export default function Home() {
               Our Services
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Comprehensive technology solutions designed to drive your business forward.
-              From concept to deployment, we're your trusted technology partner.
+              Comprehensive technology solutions designed to drive your business
+              forward. From concept to deployment, we're your trusted technology
+              partner.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                {...service}
-                delay={index * 0.1}
-              />
+              <ServiceCard key={index} {...service} delay={index * 0.1} />
             ))}
           </div>
         </div>
@@ -241,7 +259,6 @@ export default function Home() {
       {/* Values Section */}
       <section className="section-padding bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
         <div className="container-custom">
-          {/* Heading */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -253,11 +270,11 @@ export default function Home() {
               Our Core Values
             </h2>
             <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
-              These principles guide everything we do and ensure we deliver exceptional value to our clients.
+              These principles guide everything we do and ensure we deliver
+              exceptional value to our clients.
             </p>
           </motion.div>
 
-          {/* Values Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => {
               const Icon = value.icon;
@@ -282,7 +299,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section with Swiper */}
       <section className="section-padding bg-neutral-50">
         <div className="container-custom">
           <motion.div
@@ -296,46 +313,70 @@ export default function Home() {
               What Our Clients Say
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Don't just take our word for it. Here's what our satisfied clients have to say about working with us.
+              Don't just take our word for it. Here's what our satisfied clients
+              have to say about working with us.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={24}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
             {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white p-8 rounded-xl shadow-md"
-              >
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-neutral-600 mb-6 italic">
-                  "{testimonial.content}"
-                </p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-[#0A3D62] text-white rounded-full flex items-center justify-center font-semibold mr-4">
-                    {testimonial.avatar}
+              <SwiperSlide key={index}>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white p-8 rounded-xl shadow-md h-full flex flex-col"
+                >
+                  <div className="flex items-center mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 text-yellow-400 fill-current"
+                      />
+                    ))}
                   </div>
-                  <div>
-                    <div className="font-semibold text-[#0A3D62]">{testimonial.name}</div>
-                    <div className="text-sm text-neutral-500">{testimonial.role}</div>
+                  <p className="text-neutral-600 mb-6 italic flex-1">
+                    "{testimonial.content}"
+                  </p>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center mr-4 bg-white border border-gray-200">
+                      <img
+                        src={testimonial.logo}
+                        alt={`${testimonial.name} logo`}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-[#0A3D62]">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-sm text-neutral-500">
+                        {testimonial.role}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </section>
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/917588473653" 
+        href="https://wa.me/917588473653"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform duration-300 hover:scale-110"
@@ -351,7 +392,7 @@ export default function Home() {
             fill="currentColor"
             viewBox="0 0 24 24"
           >
-            <path d="M12 2C6.5 2 2 6.2 2 11.4c0 2.2.8 4.2 2.1 5.8L2 22l5.1-1.6c1.4.8 3 1.2 4.9 1.2 5.5 0 10-4.2 10-9.4S17.5 2 12 2zm.1 16.6c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3 .9.9-2.9-.2-.3c-1-1.3-1.6-2.8-1.6-4.5C4.8 7.1 8 4 12.1 4c4 0 7.3 3.1 7.3 7s-3.3 7.6-7.3 7.6zm4.1-5.6c-.2-.1-1.2-.6-1.3-.7s-.3-.1-.4.1c-.1.2-.5.7-.6.8-.1.1-.2.1-.4 0s-.8-.3-1.6-1c-.6-.6-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.3.1-.1.1-.2.2-.3.1-.1 0-.2 0-.3 0-.1-.4-1.1-.6-1.5-.2-.4-.3-.3-.4-.3h-.3c-.1 0-.3 0-.4.2-.1.2-.6.6-.6 1.5s.6 1.8.7 1.9c.1.1 1.3 2 3.2 2.8.4.2.8.3 1.1.4.5.2.9.2 1.2.1.4-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3z"/>
+            <path d="M12 2C6.5 2 2 6.2 2 11.4c0 2.2.8 4.2 2.1 5.8L2 22l5.1-1.6c1.4.8 3 1.2 4.9 1.2 5.5 0 10-4.2 10-9.4S17.5 2 12 2zm.1 16.6c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3 .9.9-2.9-.2-.3c-1-1.3-1.6-2.8-1.6-4.5C4.8 7.1 8 4 12.1 4c4 0 7.3 3.1 7.3 7s-3.3 7.6-7.3 7.6zm4.1-5.6c-.2-.1-1.2-.6-1.3-.7s-.3-.1-.4.1c-.1.2-.5.7-.6.8-.1.1-.2.1-.4 0s-.8-.3-1.6-1c-.6-.6-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.2.3-.3.1-.1.1-.2.2-.3.1-.1 0-.2 0-.3 0-.1-.4-1.1-.6-1.5-.2-.4-.3-.3-.4-.3h-.3c-.1 0-.3 0-.4.2-.1.2-.6.6-.6 1.5s.6 1.8.7 1.9c.1.1 1.3 2 3.2 2.8.4.2.8.3 1.1.4.5.2.9.2 1.2.1.4-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3z" />
           </svg>
         </motion.div>
       </a>

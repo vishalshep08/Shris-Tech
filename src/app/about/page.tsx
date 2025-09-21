@@ -10,6 +10,11 @@ import {
   Heart,
   CheckCircle,
   ArrowRight,
+  Workflow,
+  MessageSquare,
+  Code,
+  Rocket,
+  Headphones,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -52,30 +57,36 @@ const values = [
   },
 ];
 
-const milestones = [
+const workflow = [
   {
-    year: "2025",
-    title: "Company Founded",
+    icon: Workflow,
+    title: "Discovery",
     description:
-      "Shris Tech was established with a vision to democratize technology solutions.",
+      "We start by understanding your business goals, challenges, and requirements through collaborative workshops.",
   },
   {
-    year: "2025",
-    title: "First Major Client",
+    icon: MessageSquare,
+    title: "Planning",
     description:
-      "Secured our first enterprise client and delivered a comprehensive digital transformation project.",
+      "We define a clear roadmap, communication plan, and milestones to ensure transparency at every stage.",
   },
   {
-    year: "2025",
-    title: "Shris Academy Launch",
+    icon: Code,
+    title: "Development",
     description:
-      "Launched our training academy to bridge the technology skills gap in the market.",
+      "Our expert team builds tailored solutions using agile methodologies and cutting-edge technologies.",
   },
   {
-    year: "2025",
-    title: "50+ Projects",
+    icon: Rocket,
+    title: "Delivery",
     description:
-      "Celebrated completing over 50 successful projects across various industries.",
+      "We ensure timely, high-quality delivery with rigorous testing and client approvals at every step.",
+  },
+  {
+    icon: Headphones,
+    title: "Support",
+    description:
+      "Post-launch, we provide continuous monitoring, support, and enhancements to maximize business value.",
   },
 ];
 
@@ -94,11 +105,14 @@ export default function About() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
               About Shris Tech
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-neutral-200 leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-neutral-200 leading-relaxed mb-4">
               We are a leading technology solutions provider dedicated to
               empowering businesses through innovation, excellence, and
               cutting-edge technology. Our mission is to transform ideas into
               reality and drive digital success for our clients.
+            </p>
+            <p className="text-sm sm:text-base lg:text-lg font-semibold text-white/90">
+              🌍 Headquartered in India – Delivering to Clients Worldwide.
             </p>
           </motion.div>
         </div>
@@ -220,8 +234,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
+      {/* How We Work */}
+      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -230,80 +244,39 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4">
-              Our Journey
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-primary-950 mb-4">
+              How We Work
             </h2>
-            <p className="text-sm sm:text-base lg:text-xl text-neutral-200 max-w-3xl mx-auto">
-              From humble beginnings to becoming a trusted technology partner,
-              here’s how we’ve grown.
+            <p className="text-sm sm:text-base lg:text-xl text-neutral-600 max-w-3xl mx-auto">
+              Our streamlined process ensures transparency, collaboration, and
+              on-time delivery for every project.
             </p>
           </motion.div>
 
-          {/* Mobile Timeline */}
-          <div className="block lg:hidden space-y-8">
-            {milestones.map((milestone, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="relative pl-8"
-              >
-                <div className="absolute left-0 top-1.5 w-4 h-4 bg-secondary-500 rounded-full border-2 border-white"></div>
-                {index < milestones.length - 1 && (
-                  <div className="absolute left-2 top-5 w-0.5 h-full bg-secondary-500"></div>
-                )}
-                <div className="bg-white/10 rounded-xl p-4 sm:p-6 border border-white/20">
-                  <div className="text-secondary-400 font-bold text-base sm:text-lg mb-2">
-                    {milestone.year}
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                    {milestone.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-neutral-200">
-                    {milestone.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Desktop Timeline */}
-          <div className="hidden lg:block relative">
-            <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-secondary-500"></div>
-            <div className="space-y-12">
-              {milestones.map((milestone, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {workflow.map((step, index) => {
+              const Icon = step.icon;
+              return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className={`flex items-center ${
-                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                  }`}
+                  className="bg-neutral-50 rounded-xl p-6 text-center border hover:shadow-md transition"
                 >
-                  <div
-                    className={`w-1/2 ${
-                      index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"
-                    }`}
-                  >
-                    <div className="bg-white/10 rounded-xl p-6 border border-white/20">
-                      <div className="text-secondary-400 font-bold text-lg mb-2">
-                        {milestone.year}
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2">
-                        {milestone.title}
-                      </h3>
-                      <p className="text-neutral-200">{milestone.description}</p>
-                    </div>
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary-950" />
                   </div>
-                  <div className="w-4 h-4 bg-secondary-500 rounded-full border-2 border-white z-10"></div>
-                  <div className="w-1/2"></div>
+                  <h3 className="text-lg font-semibold text-primary-950 mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-neutral-600 leading-relaxed">
+                    {step.description}
+                  </p>
                 </motion.div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
