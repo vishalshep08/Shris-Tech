@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import Hero from "@/components/Hero/Hero";
 import ServiceCard from "@/components/ServiceCard/ServiceCard";
-import Link from "next/link";
 
 // Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -23,8 +22,10 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
 import Image from "next/image";
 
+// Services Data
 const services = [
   {
     icon: Code,
@@ -113,6 +114,7 @@ const services = [
   },
 ];
 
+// Testimonials Data
 const testimonials = [
   {
     name: "Belly Feast",
@@ -120,7 +122,7 @@ const testimonials = [
     content:
       "Shris Tech transformed our digital presence completely. Their web development team delivered beyond our expectations, providing innovative, reliable, and highly engaging solutions.",
     rating: 5,
-    logo: "/BF.jpg", 
+    logo: "/BF.jpg",
   },
   {
     name: "Suraj Salunkhe",
@@ -156,12 +158,14 @@ const testimonials = [
   },
 ];
 
+// Stats Data
 const stats = [
   { number: "50+", label: "Happy Clients" },
   { number: "1+", label: "Years Experience" },
   { number: "99%", label: "Client Satisfaction" },
 ];
 
+// Core Values Data
 const values = [
   {
     icon: Users,
@@ -208,7 +212,7 @@ export default function Home() {
           "Digital Marketing & SEO Services",
           "24/7 Technical Support & Maintenance",
         ]}
-        showVideo={true}
+        showVideo
       />
 
       {/* Stats Section */}
@@ -316,7 +320,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section with Swiper */}
+      {/* Testimonials Section */}
       <section className="section-padding bg-neutral-50">
         <div className="container-custom">
           <motion.div
