@@ -65,15 +65,16 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-4 mb-6">
               <div className="w-28 sm:w-36">
-                <div className="bg-white/90 p-2 sm:p-3 rounded-xl shadow-md flex items-center justify-center">
+                <div className="bg-blue/30 p-2 sm:p-3 rounded-xl shadow-md flex items-center justify-center">
                   <Image
                     src="/ShrisTechLogo.png"
                     alt="Shris Tech Logo"
-                    width={144}
-                    height={80}
-                    className="w-full max-h-16 sm:max-h-20 object-contain"
+                    width={200}
+                    height={100}
+                    className="h-20 sm:h-24 object-contain"
                   />
                 </div>
+
               </div>
               <div>
                 <h3 className="text-lg sm:text-xl font-bold">Shris Tech</h3>

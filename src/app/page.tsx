@@ -120,10 +120,10 @@ const testimonials = [
     content:
       "Shris Tech transformed our digital presence completely. Their web development team delivered beyond our expectations, providing innovative, reliable, and highly engaging solutions.",
     rating: 5,
-    logo: "/BB.jpg", 
+    logo: "/BF.jpg", 
   },
   {
-    name: "Vidaychandra Photoshop",
+    name: "Suraj Salunkhe",
     role: "Vidaychandra Photoshop",
     content:
       "Shris Tech is a dynamic web development company that blends innovation with expertise to deliver modern, scalable, and user-friendly solutions.",
@@ -136,7 +136,23 @@ const testimonials = [
     content:
       "Their digital marketing strategies and AI solutions have revolutionized how we approach customer engagement, driving measurable growth and optimizing overall business performance.",
     rating: 5,
-    logo: "/BF.jpg",
+    logo: "/BB.jpg",
+  },
+  {
+    name: "Abhilasha Mohite",
+    role: "Swaraaj Tech",
+    content:
+      "Shris Tech is an outstanding partner, providing high-quality, efficient digital solutions with excellent attention to detail. Highly recommend for reliable service and support.",
+    rating: 5,
+    logo: "/swaraaj.png",
+  },
+  {
+    name: "A1 Diesel Services",
+    role: "A1 Diesel Services",
+    content:
+      "Shris Tech transformed our marketing approach with SEO and social media strategies. We saw more customer inquiries, better local visibility, and a stronger brand presence. Highly recommended!",
+    rating: 5,
+    logo: "/A1.png",
   },
 ];
 
