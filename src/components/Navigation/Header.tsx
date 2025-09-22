@@ -151,7 +151,7 @@ export default function Header() {
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                className="absolute right-0 top-0 w-72 max-w-xs h-full bg-white shadow-2xl overflow-y-auto rounded-l-xl"
+                className="absolute right-0 top-0 w-72 max-w-xs h-screen bg-white shadow-2xl overflow-y-auto rounded-l-xl"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Mobile Header */}

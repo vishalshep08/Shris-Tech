@@ -152,7 +152,7 @@ const testimonials = [
     name: "A1 Diesel Services",
     role: "A1 Diesel Services",
     content:
-      "Shris Tech transformed our marketing approach with SEO and social media strategies. We saw more customer inquiries, better local visibility, and a stronger brand presence. Highly recommended!",
+      "Shris Tech transformed our marketing approach with SEO and social media strategies. We saw more customer inquiries, better visibility, and a stronger brand presence. Highly recommended!",
     rating: 5,
     logo: "/A1.png",
   },
