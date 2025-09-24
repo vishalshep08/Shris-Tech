@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { 
   GraduationCap, Code, BarChart3, Megaphone, Rocket,
-  Clock, Users, Star, CheckCircle, ArrowRight, Calendar,
+  Clock, Users, Star, CheckCircle, Calendar,
   BookOpen, Award, Target, TrendingUp, Globe
 } from 'lucide-react';
 import Link from 'next/link';
@@ -103,34 +103,34 @@ export default function Academy() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-950 via-primary-900 to-secondary-600 text-white relative overflow-hidden">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-950 via-primary-900 to-secondary-600 text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-5">
               <GraduationCap className="w-4 h-4" />
               <span className="text-xs sm:text-sm font-medium">Shris Academy</span>
             </div>
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-3 leading-tight">
               Learn the Skills to <br className="hidden sm:block" />
               <span className="text-secondary-400">Build Your Future</span>
             </h1>
-            <p className="text-sm sm:text-lg lg:text-xl text-neutral-200 mb-8 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-lg lg:text-xl text-neutral-200 mb-6 max-w-3xl mx-auto">
               Industry-aligned programs designed by practitioners. Learn by doing with real projects, expert mentorship, and career support.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="#programs"
-                className="px-6 py-3 bg-secondary-500 hover:bg-secondary-600 text-white font-semibold rounded-lg transition"
+                className="px-6 py-2.5 bg-secondary-500 hover:bg-secondary-600 text-white font-semibold rounded-lg transition"
               >
                 Explore Programs
               </Link>
               <Link
                 href="/contact"
-                className="px-6 py-3 border-2 border-white text-white hover:bg-white hover:text-primary-950 font-semibold rounded-lg transition"
+                className="px-6 py-2.5 border-2 border-white text-white hover:bg-white hover:text-primary-950 font-semibold rounded-lg transition"
               >
                 Talk to Advisor
               </Link>
@@ -140,16 +140,16 @@ export default function Academy() {
       </section>
 
       {/* Programs Section */}
-      <section id="programs" className="py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-8">
+      <section id="programs" className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-primary-950 mb-4">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-primary-950 mb-3">
               Choose Your Learning Path
             </h2>
             <p className="text-sm sm:text-lg lg:text-xl text-neutral-600 max-w-3xl mx-auto">
@@ -177,7 +177,7 @@ export default function Academy() {
                     </span>
                   )}
 
-                  <div className="flex gap-4 mb-4">
+                  <div className="flex gap-4 mb-3">
                     <div className="w-12 h-12 bg-secondary-500 rounded-lg flex items-center justify-center">
                       <Icon className="w-6 h-6 text-white" />
                     </div>
@@ -187,9 +187,9 @@ export default function Academy() {
                     </div>
                   </div>
 
-                  <p className="text-sm sm:text-base text-neutral-600 mb-4">{program.description}</p>
+                  <p className="text-sm sm:text-base text-neutral-600 mb-3">{program.description}</p>
 
-                  <div className="grid grid-cols-2 gap-3 mb-4 p-3 bg-neutral-50 rounded-lg text-sm">
+                  <div className="grid grid-cols-2 gap-3 mb-3 p-3 bg-neutral-50 rounded-lg text-sm">
                     <div>
                       <span className="flex items-center gap-2 text-neutral-600 mb-1">
                         <Clock className="w-4 h-4" /> Duration
@@ -211,7 +211,7 @@ export default function Academy() {
                   </div>
 
                   <h4 className="font-semibold text-primary-950 mb-2 text-sm">What You’ll Learn:</h4>
-                  <ul className="space-y-1 mb-4 text-sm">
+                  <ul className="space-y-1 mb-3 text-sm">
                     {program.bullets.map((bullet, i) => (
                       <li key={i} className="flex gap-2 text-neutral-600">
                         <CheckCircle className="w-4 h-4 text-secondary-500" /> {bullet}
@@ -219,7 +219,7 @@ export default function Academy() {
                     ))}
                   </ul>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-3">
                     {program.highlights.map((highlight, i) => (
                       <span key={i} className="px-2 py-1 bg-secondary-100 text-secondary-700 rounded-full text-xs flex items-center gap-1">
                         <Star className="w-3 h-3" /> {highlight}
@@ -227,7 +227,7 @@ export default function Academy() {
                     ))}
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <Link
                       href="/contact"
                       className={`flex-1 px-4 py-2 rounded-lg font-semibold text-sm text-center transition ${
@@ -253,16 +253,16 @@ export default function Academy() {
       </section>
 
       {/* Features Section */}
-      <section className="py-10 sm:py-14 lg:py-20 px-4 sm:px-6 lg:px-8 bg-neutral-50">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-neutral-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-primary-950 mb-4">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-primary-950 mb-3">
               Why Choose Shris Academy?
             </h2>
             <p className="text-sm sm:text-lg lg:text-xl text-neutral-600 max-w-3xl mx-auto">
@@ -282,10 +282,10 @@ export default function Academy() {
                   viewport={{ once: true }}
                   className="bg-white rounded-xl shadow-sm hover:shadow-md transition p-6"
                 >
-                  <div className="w-12 h-12 bg-secondary-500 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-secondary-500 rounded-lg flex items-center justify-center mb-3">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-semibold text-primary-950 mb-2">{feature.title}</h3>
+                  <h3 className="text-lg font-semibold text-primary-950 mb-1">{feature.title}</h3>
                   <p className="text-sm text-neutral-600">{feature.description}</p>
                 </motion.div>
               );

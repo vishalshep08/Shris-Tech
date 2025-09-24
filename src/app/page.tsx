@@ -198,87 +198,57 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <Hero
-        subtitle="Welcome to Shris Tech"
-        title="Innovation & Excellence in Technology Solutions"
-        description="Transform your business with cutting-edge technology solutions. We deliver excellence through innovation, security, and scalability."
+        subtitle="Delivering Web, Full-Stack, and Data Analytics solutions to clients worldwide."
+        title="Your Offshore Development Partner – Skilled Teams, Cost-Effective Solutions"
+        description="We deliver high-quality, cost-effective technology solutions for clients worldwide. Partner with us for expert teams, transparent processes, and measurable results."
         primaryCTA={{
-          text: "Get Started Today",
+          text: "Get Started",
           href: "/contact",
         }}
         features={[
-          "Custom Web & Mobile Applications",
-          "Advanced Data Analytics & BI Solutions",
-          "AI/ML Implementation & Automation",
-          "Digital Marketing & SEO Services",
-          "24/7 Technical Support & Maintenance",
+          "Expert Full-Stack & Web Development",
+          "Advanced Data Analytics & AI Solutions",
+          "24/7 Support & Communication",
+          "Proven Track Record with Global Clients",
         ]}
-        showVideo
+        // backgroundImage="/hero-bg.webp"
       />
 
-      {/* Stats Section */}
-      <section className="relative section-padding">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF]">
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
-        <div className="relative container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center"
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="p-6 rounded-xl shadow-lg bg-[#0A3D62]/80 border border-[#00AEEF]/40 hover:scale-105 hover:shadow-xl hover:border-[#00AEEF]/70 transition-all duration-300"
-              >
-                <div className="text-4xl lg:text-5xl font-extrabold text-[#00AEEF] drop-shadow-md mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-100 font-medium tracking-wide">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* Services Section */}
-      <section className="section-padding bg-neutral-50">
+      <section className="section bg-neutral-50">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-[#0A3D62] mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#0A3D62] mb-4">
               Our Services
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Comprehensive technology solutions designed to drive your business
-              forward. From concept to deployment, we're your trusted technology
-              partner.
+              Comprehensive technology solutions designed to drive your business forward. From concept to deployment, we're your trusted technology partner.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Service Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {services.map((service, index) => (
               <ServiceCard key={index} {...service} delay={index * 0.1} />
             ))}
+          </div>
+
+          {/* CTA Buttons Row */}
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center items-center mt-8">
+            <a href="/contact" className="btn-primary w-full sm:w-auto">Get a Free Quote</a>
+            <a href="/services" className="btn-outline w-full sm:w-auto">Explore All Services</a>
           </div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="section-padding bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
+      <section className="section bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -321,7 +291,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="section-padding bg-neutral-50">
+      <section className="section bg-neutral-50">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

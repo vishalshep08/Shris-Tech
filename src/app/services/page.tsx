@@ -137,14 +137,14 @@ export default function Services() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-5">
               Our Services
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-neutral-200 leading-relaxed">
@@ -156,7 +156,7 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <motion.div
           className="max-w-7xl mx-auto grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
@@ -172,7 +172,7 @@ export default function Services() {
                 features={service.features}
                 ctaText="Enquire Now"
                 ctaHref={`/contact?service=${encodeURIComponent(service.title)}`}
-                featured={false} // Removed "Most Popular"
+                featured={false}
                 className="flex flex-col h-full"
               />
             </motion.div>

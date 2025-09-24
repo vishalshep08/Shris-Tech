@@ -94,7 +94,7 @@ export default function About() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -102,14 +102,13 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 leading-tight">
               About Shris Tech
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-neutral-200 leading-relaxed mb-4">
+            <p className="text-base sm:text-lg lg:text-xl text-neutral-200 leading-relaxed mb-3">
               We are a leading technology solutions provider dedicated to
               empowering businesses through innovation, excellence, and
-              cutting-edge technology. Our mission is to transform ideas into
-              reality and drive digital success for our clients.
+              cutting-edge technology.
             </p>
             <p className="text-sm sm:text-base lg:text-lg font-semibold text-white/90">
               🌍 Headquartered in India – Delivering to Clients Worldwide.
@@ -119,8 +118,8 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Mission */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -128,14 +127,14 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-950 mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary-950 mb-3">
               Our Mission
             </h2>
-            <p className="text-sm sm:text-base lg:text-lg text-neutral-600 mb-6 leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-neutral-600 mb-4 leading-relaxed">
               To empower businesses with innovative technology solutions that
               drive growth, efficiency, and competitive advantage.
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {[
                 "Democratize access to cutting-edge technology",
                 "Deliver solutions that create real business value",
@@ -148,7 +147,7 @@ export default function About() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-start gap-3"
+                  className="flex items-start gap-2"
                 >
                   <CheckCircle className="w-5 h-5 text-secondary-500 flex-shrink-0 mt-0.5" />
                   <span className="text-sm sm:text-base text-neutral-600">
@@ -166,14 +165,14 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-950 mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary-950 mb-3">
               Our Vision
             </h2>
-            <p className="text-sm sm:text-base lg:text-lg text-neutral-600 mb-6 leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-neutral-600 mb-4 leading-relaxed">
               To be the leading technology partner businesses trust to transform
               their digital landscape and achieve sustainable growth.
             </p>
-            <div className="bg-primary-50 p-4 sm:p-6 rounded-xl">
+            <div className="bg-primary-50 p-4 sm:p-5 rounded-xl">
               <h3 className="text-base sm:text-lg font-semibold text-primary-950 mb-2">
                 Our Commitment
               </h3>
@@ -188,25 +187,25 @@ export default function About() {
       </section>
 
       {/* Company Values */}
-      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-50">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-neutral-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-primary-950 mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-950 mb-3">
               Our Core Values
             </h2>
-            <p className="text-sm sm:text-base lg:text-xl text-neutral-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto">
               These principles guide our decisions, shape our culture, and define
               how we work with clients and each other.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
@@ -216,12 +215,12 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 sm:p-8 text-center"
+                  className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-5 sm:p-6 text-center"
                 >
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-secondary-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-secondary-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-primary-950 mb-3">
+                  <h3 className="text-lg font-semibold text-primary-950 mb-2">
                     {value.title}
                   </h3>
                   <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
@@ -235,25 +234,25 @@ export default function About() {
       </section>
 
       {/* How We Work */}
-      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-primary-950 mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-950 mb-3">
               How We Work
             </h2>
-            <p className="text-sm sm:text-base lg:text-xl text-neutral-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base lg:text-lg text-neutral-600 max-w-3xl mx-auto">
               Our streamlined process ensures transparency, collaboration, and
               on-time delivery for every project.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
             {workflow.map((step, index) => {
               const Icon = step.icon;
               return (
@@ -263,12 +262,12 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-neutral-50 rounded-xl p-6 text-center border hover:shadow-md transition"
+                  className="bg-neutral-50 rounded-xl p-5 text-center border hover:shadow-md transition"
                 >
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary-950" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary-950" />
                   </div>
-                  <h3 className="text-lg font-semibold text-primary-950 mb-2">
+                  <h3 className="text-base sm:text-lg font-semibold text-primary-950 mb-1">
                     {step.title}
                   </h3>
                   <p className="text-sm text-neutral-600 leading-relaxed">
@@ -282,7 +281,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -290,14 +289,14 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
               Ready to Work With Us?
             </h2>
-            <p className="text-sm sm:text-base lg:text-xl text-neutral-200 mb-8 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base lg:text-lg text-neutral-200 mb-6 max-w-3xl mx-auto">
               Let’s discuss how our team can help transform your business with
               innovative technology solutions tailored to your needs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/contact"
                 aria-label="Get in touch"

@@ -32,7 +32,7 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -54,40 +54,40 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-transparent'
       }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo + Name (Always Visible) */}
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md">
+        <div className="flex items-center justify-between h-14 lg:h-16">
+          {/* Logo + Name */}
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-9 h-9 rounded-lg overflow-hidden shadow">
               <Image
                 src="/ShrisTechLogo.png"
                 alt="Shris Tech Logo"
-                width={40}
-                height={40}
+                width={36}
+                height={36}
                 className="object-cover"
               />
             </div>
             <div className="flex flex-col">
-              <h1 className="text-lg sm:text-xl font-bold text-[#0A3D62] leading-tight">
+              <h1 className="text-base sm:text-lg font-bold text-[#0A3D62] leading-tight">
                 Shris Tech
               </h1>
-              <p className="hidden sm:block text-xs text-neutral-500">
+              <p className="hidden sm:block text-[11px] text-neutral-500 leading-none">
                 Innovation & Excellence
               </p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center gap-5">
             {navigation.map((item) =>
               item.cta ? (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="px-5 py-2 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white text-sm font-semibold rounded-xl shadow-md hover:opacity-90 transition"
+                  className="px-4 py-2 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white text-sm font-semibold rounded-lg shadow hover:opacity-90 transition"
                 >
                   {item.name}
                 </Link>
@@ -95,7 +95,7 @@ export default function Header() {
                 <div key={item.name} className="relative group">
                   <Link
                     href={item.href}
-                    className={`flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                    className={`flex items-center gap-1 px-2.5 py-1.5 rounded-md text-sm font-medium transition-colors ${
                       pathname === item.href
                         ? 'text-secondary-600 font-semibold'
                         : 'text-neutral-600 hover:text-primary-950'
@@ -107,13 +107,13 @@ export default function Header() {
 
                   {/* Desktop Submenu */}
                   {item.submenu && (
-                    <div className="absolute top-full left-0 mt-2 w-60 bg-white rounded-xl shadow-xl border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                      <div className="py-2">
+                    <div className="absolute top-full left-0 mt-1.5 w-56 bg-white rounded-lg shadow-lg border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-1 group-hover:translate-y-0">
+                      <div className="py-1.5">
                         {item.submenu.map((subItem) => (
                           <Link
                             key={subItem.name}
                             href={subItem.href}
-                            className="block px-4 py-3 text-sm text-neutral-600 hover:text-primary-950 hover:bg-neutral-50 transition-colors duration-200"
+                            className="block px-3 py-2 text-sm text-neutral-600 hover:text-primary-950 hover:bg-neutral-50 transition"
                           >
                             {subItem.name}
                           </Link>
@@ -129,7 +129,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="lg:hidden p-2 rounded-lg text-neutral-600 hover:text-primary-950 hover:bg-neutral-100 transition-colors duration-200"
+            className="lg:hidden p-1.5 rounded-md text-neutral-600 hover:text-primary-950 hover:bg-neutral-100 transition"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -150,18 +150,18 @@ export default function Header() {
                 initial={{ x: '100%' }}
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
-                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                className="absolute right-0 top-0 w-72 max-w-xs h-screen bg-white shadow-2xl overflow-y-auto rounded-l-xl"
+                transition={{ type: 'spring', stiffness: 280, damping: 28 }}
+                className="absolute right-0 top-0 w-72 max-w-xs h-screen bg-white shadow-xl overflow-y-auto rounded-l-lg"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Mobile Header */}
-                <div className="flex items-center justify-between p-4 border-b border-neutral-200">
+                <div className="flex items-center justify-between p-3 border-b border-neutral-200">
                   <Link
                     href="/"
-                    className="flex items-center space-x-2"
+                    className="flex items-center gap-2"
                     onClick={closeMenu}
                   >
-                    <div className="w-8 h-8 rounded-lg overflow-hidden">
+                    <div className="w-8 h-8 rounded-md overflow-hidden">
                       <Image
                         src="/ShrisTechLogo.png"
                         alt="Shris Tech Logo"
@@ -170,30 +170,30 @@ export default function Header() {
                         className="object-cover"
                       />
                     </div>
-                    <h2 className="text-base font-bold text-[#0A3D62]">
+                    <h2 className="text-sm font-bold text-[#0A3D62]">
                       Shris Tech
                     </h2>
                   </Link>
                   <button
                     onClick={closeMenu}
-                    className="p-2 text-neutral-600 hover:text-primary-950"
+                    className="p-1.5 text-neutral-600 hover:text-primary-950"
                   >
-                    <X className="w-6 h-6" />
+                    <X className="w-5 h-5" />
                   </button>
                 </div>
 
                 {/* Mobile Links */}
-                <div className="p-4 space-y-2">
+                <div className="p-3 space-y-1.5">
                   {navigation.map((item) =>
                     item.submenu ? (
                       <div key={item.name}>
                         <button
                           onClick={() => toggleSubmenu(item.name)}
-                          className="flex justify-between items-center w-full px-4 py-3 rounded-lg text-neutral-700 hover:text-primary-950 hover:bg-neutral-50 transition"
+                          className="flex justify-between items-center w-full px-3 py-2 rounded-md text-neutral-700 hover:text-primary-950 hover:bg-neutral-50 transition"
                         >
                           <span className="text-sm font-medium">{item.name}</span>
                           <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 ${
+                            className={`w-4 h-4 transition-transform ${
                               activeSubmenu === item.name ? 'rotate-180' : ''
                             }`}
                           />
@@ -206,14 +206,14 @@ export default function Header() {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="ml-4 mt-2 space-y-1 overflow-hidden"
+                              className="ml-3 mt-1 space-y-1 overflow-hidden"
                             >
                               {item.submenu.map((subItem) => (
                                 <Link
                                   key={subItem.name}
                                   href={subItem.href}
                                   onClick={closeMenu}
-                                  className="block px-4 py-2 text-sm text-neutral-500 hover:text-primary-950 hover:bg-neutral-50 rounded-lg transition"
+                                  className="block px-3 py-1.5 text-sm text-neutral-500 hover:text-primary-950 hover:bg-neutral-50 rounded-md transition"
                                 >
                                   {subItem.name}
                                 </Link>
@@ -227,7 +227,7 @@ export default function Header() {
                         key={item.name}
                         href={item.href}
                         onClick={closeMenu}
-                        className="block w-full text-center px-5 py-3 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white font-semibold rounded-xl shadow-md hover:opacity-90 transition"
+                        className="block w-full text-center px-4 py-2.5 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] text-white font-semibold rounded-lg shadow hover:opacity-90 transition"
                       >
                         {item.name}
                       </Link>
@@ -236,7 +236,7 @@ export default function Header() {
                         key={item.name}
                         href={item.href}
                         onClick={closeMenu}
-                        className={`block px-4 py-3 rounded-lg text-sm font-medium transition ${
+                        className={`block px-3 py-2 rounded-md text-sm font-medium transition ${
                           pathname === item.href
                             ? 'text-secondary-600 bg-secondary-50'
                             : 'text-neutral-700 hover:text-primary-950 hover:bg-neutral-50'

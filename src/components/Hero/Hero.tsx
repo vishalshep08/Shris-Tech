@@ -3,13 +3,13 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Play, CheckCircle } from "lucide-react";
+import { ArrowRight, Globe, CheckCircle } from "lucide-react";
 
 interface HeroProps {
-  title: string;
-  subtitle: string;
-  description: string;
-  primaryCTA: {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  primaryCTA?: {
     text: string;
     href: string;
   };
@@ -18,215 +18,123 @@ interface HeroProps {
     href: string;
   };
   features?: string[];
-  showVideo?: boolean;
   backgroundImage?: string;
 }
 
 export default function Hero({
-  title,
-  subtitle,
-  description,
-  primaryCTA,
-  secondaryCTA,
-  features = [],
-  showVideo = false,
+  title = "Your Offshore Development Partner – Skilled Teams, Cost-Effective Solutions",
+  subtitle = "TRUSTED WORLDWIDE",
+  description = "Delivering Web, Full-Stack, and Data Analytics solutions to clients worldwide. Scale your business with our expert development teams.",
+  primaryCTA = {
+    text: "Get Started",
+    href: "/contact",
+  },
+  features = [
+    "Expert Full-Stack Development Teams",
+    "Advanced Data Analytics & AI Solutions",
+    "24/7 Support & Communication",
+    "Proven Track Record with Global Clients",
+  ],
   backgroundImage,
 }: HeroProps) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[65vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/85 to-[#00AEEF]">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0A3D62] via-[#0A3D62]/80 to-[#00AEEF] transition-all duration-500 hover:brightness-110">
-        {backgroundImage && (
-          <div className="absolute inset-0 opacity-20">
-            <Image
-              src={backgroundImage}
-              alt=""
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover object-center"
-            />
-          </div>
+      <div className="absolute inset-0">
+        {backgroundImage ? (
+          <Image
+            src={backgroundImage}
+            alt="Hero background"
+            fill
+            sizes="100vw"
+            className="object-cover opacity-15"
+            priority
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0A3D62]/95 via-[#0A3D62]/90 to-[#00AEEF]/95" />
         )}
-        <div className="absolute inset-0 bg-black/30" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 container-custom section-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white text-center lg:text-left max-w-2xl mx-auto lg:mx-0"
-          >
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-secondary-400 font-semibold text-base sm:text-lg mb-3 sm:mb-4"
-            >
-              {subtitle}
-            </motion.p>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6"
-            >
-              {title}
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-base sm:text-lg md:text-xl text-neutral-200 mb-6 sm:mb-8 leading-relaxed"
-            >
-              {description}
-            </motion.p>
-
-            {/* Features */}
-            {features.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="mb-6 sm:mb-8"
-              >
-                <ul className="space-y-3">
-                  {features.map((feature, index) => (
-                    <motion.li
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{
-                        duration: 0.4,
-                        delay: 0.6 + index * 0.1,
-                      }}
-                      className="flex items-center space-x-3"
-                    >
-                      <CheckCircle className="w-5 h-5 text-secondary-400 flex-shrink-0" />
-                      <span className="text-neutral-200 text-sm sm:text-base">
-                        {feature}
-                      </span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            )}
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <Link
-                href={primaryCTA.href}
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-secondary-500 hover:bg-secondary-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base"
-              >
-                {primaryCTA.text}
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-              </Link>
-
-              {secondaryCTA && (
-                <Link
-                  href={secondaryCTA.href}
-                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white hover:bg-white hover:text-primary-950 font-semibold rounded-lg transition-all duration-300 text-sm sm:text-base"
-                >
-                  {showVideo && <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />}
-                  {secondaryCTA.text}
-                </Link>
-              )}
-            </motion.div>
-          </motion.div>
-
-          {/* Visual Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative flex justify-center lg:justify-end"
-          >
-            <div className="relative w-full max-w-md">
-              {/* Main Visual */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 relative">
-                <div className="space-y-6">
-                  {/* Mock Dashboard */}
-                  <div className="bg-white rounded-lg p-4 sm:p-6 shadow-xl">
-                    <div className="flex items-center justify-between mb-3 sm:mb-4">
-                      <div className="flex space-x-2">
-                        <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
-                        <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
-                        <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
-                      </div>
-                      <div className="text-xs sm:text-sm text-neutral-600">
-                        Dashboard
-                      </div>
-                    </div>
-                    <div className="space-y-2 sm:space-y-3">
-                      <div className="h-3 sm:h-4 bg-neutral-200 rounded w-3/4"></div>
-                      <div className="h-3 sm:h-4 bg-neutral-200 rounded w-1/2"></div>
-                      <div className="h-3 sm:h-4 bg-neutral-200 rounded w-2/3"></div>
-                    </div>
-                  </div>
-
-                  {/* Floating Elements */}
-                  <motion.div
-                    animate={{ y: [-10, 10, -10] }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="absolute -top-4 -right-4 bg-secondary-500 text-white px-3 py-2 rounded-lg shadow-lg text-xs sm:text-sm font-semibold"
-                  >
-                    AI/ML
-                  </motion.div>
-
-                  <motion.div
-                    animate={{ y: [10, -10, 10] }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="absolute -bottom-4 -left-4 bg-accent-500 text-white px-3 py-2 rounded-lg shadow-lg text-xs sm:text-sm font-semibold"
-                  >
-                    Analytics
-                  </motion.div>
-                </div>
-              </div>
-
-              {/* Background Decoration */}
-              <div className="absolute inset-0 bg-gradient-to-r from-secondary-500/20 to-accent-500/20 rounded-2xl blur-xl -z-10"></div>
-            </div>
-          </motion.div>
+        {/* Pattern Overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          />
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2"
-      >
+      {/* Main Content */}
+      <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col items-center text-center gap-3">
+        {/* Subtitle Badge */}
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-5 sm:w-6 h-8 sm:h-10 border-2 border-white/50 rounded-full flex justify-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="inline-flex items-center gap-2 bg-[#00AEEF]/20 backdrop-blur-sm border border-[#00AEEF]/40 rounded-full px-3 py-1.5"
         >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-2.5 sm:h-3 bg-white/50 rounded-full mt-2"
-          />
+          <Globe className="w-4 h-4 text-[#00AEEF]" />
+          <span className="text-[#00AEEF] text-xs sm:text-sm font-medium">
+            {subtitle}
+          </span>
         </motion.div>
-      </motion.div>
+
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-snug"
+        >
+          {title}
+        </motion.h1>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed max-w-xl mx-auto"
+        >
+          {description}
+        </motion.p>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="w-full flex flex-col sm:flex-row gap-3 justify-center mt-2"
+        >
+          <Link
+            href={primaryCTA.href}
+            className="btn-primary w-full sm:w-auto text-sm sm:text-base"
+          >
+            {primaryCTA.text}
+            {/* <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" /> */}
+          </Link>
+        </motion.div>
+
+        {/* Features */}
+        {features && features.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3"
+          >
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 text-white/90 text-xs sm:text-sm"
+              >
+                <CheckCircle className="w-4 h-4 text-[#00AEEF]" />
+                {feature}
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </div>
     </section>
   );
 }
