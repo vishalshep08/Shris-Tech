@@ -166,8 +166,8 @@ export default function Privacy() {
           </ul>
           <p className="text-neutral-700 mt-4">
             To exercise any of these rights, please contact us at{" "}
-            <a href="mailto:privacy@shristech.com" className="text-primary-600 hover:underline font-semibold">
-              privacy@shristech.com
+            <a href="mailto:anisha@shristech.com" className="text-primary-600 hover:underline font-semibold">
+              anisha@shristech.com
             </a>. We will respond to your request within 30 days.
           </p>
         </div>
@@ -250,7 +250,7 @@ export default function Privacy() {
           <div className="space-y-2 text-neutral-700">
             <p>
               <span className="font-semibold">Email:</span>{" "}
-              <a href="mailto:privacy@shristech.com" className="text-primary-600 hover:underline">
+              <a href="mailto:anisha@shristech.com" className="text-primary-600 hover:underline">
                 anisha@shristech.com
               </a>
             </p>
@@ -262,8 +262,8 @@ export default function Privacy() {
             </p>
             <p>
               <span className="font-semibold">Website:</span>{" "}
-              <a href="https://shristech.vercel.app" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">
-                shristech.vercel.app
+              <a href="https://shristech.com" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                shristech.com
               </a>
             </p>
           </div>
