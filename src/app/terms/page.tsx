@@ -343,8 +343,8 @@ export default function Terms() {
           </h3>
           <p className="text-neutral-700">
             If you have any disputes or concerns, please contact us first at{" "}
-            <a href="mailto:legal@shristech.com" className="text-primary-600 hover:underline">
-              legal@shristech.com
+            <a href="mailto:anisha@shristech.com" className="text-primary-600 hover:underline">
+              anisha@shristech.com
             </a>{" "}
             to attempt to resolve the issue informally.
           </p>
@@ -462,8 +462,8 @@ export default function Terms() {
           <div className="space-y-2 text-neutral-700">
             <p>
               <span className="font-semibold">Legal Inquiries:</span>{" "}
-              <a href="mailto:legal@shristech.com" className="text-primary-600 hover:underline">
-                legal@shristech.com
+              <a href="mailto:anisha@shristech.com" className="text-primary-600 hover:underline">
+                anisha@shristech.com
               </a>
             </p>
             <p>
@@ -474,8 +474,8 @@ export default function Terms() {
             </p>
             <p>
               <span className="font-semibold">Website:</span>{" "}
-              <a href="https://shristech.vercel.app" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">
-                shristech.vercel.app
+              <a href="https://shristech.com" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                shristech.com
               </a>
             </p>
           </div>
